@@ -16,6 +16,12 @@ namespace CQRS
             var p = new Person(eb);
             eb.Command(new ChangeAgeCommand(p, 123));
 
+            //We are now registered 
+            foreach (var e in eb.AllEvents)
+            {
+                Console.WriteLine(e);
+            }
+
             int age = eb.Query<int>(new AgeQuery { Target = p });
 
             Console.WriteLine(age);

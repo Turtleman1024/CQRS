@@ -34,6 +34,8 @@ namespace CQRS
 
             if (cac != null && cac.Target == this)
             {
+                //Send an event we are now recording the age has changed.
+                broker.AllEvents.Add(new AgedChangedEvent(this, age, cac.Age));
                 age = cac.Age;
             }
         }
