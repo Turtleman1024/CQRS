@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CQRS.Commands;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CQRS
@@ -23,6 +25,17 @@ namespace CQRS
         {
             Queries?.Invoke(this, q);
             return (T) q.Results;
+        }
+
+        public void UndoLast()
+        {
+            var e = AllEvents.LastOrDefault();
+            var ac = e as AgedChangedEvent;
+            if(ac != null)
+            {
+                Command(new ChangeAgeCommand(ac.Target, ac.OldValue) { Registered = false });
+                AllEvents.Remove(e);
+            }
         }
     }
 }
