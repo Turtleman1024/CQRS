@@ -1,7 +1,7 @@
 ﻿# CQRS: Command Query Responsibility Segregation
 ## Event Sourcing, and Domain Driven Design
 
-##Background
+## Background
 
 CQRS is not an entire architecture, but is just a small pattern.
 
