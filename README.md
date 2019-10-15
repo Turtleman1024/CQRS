@@ -1,7 +1,7 @@
 ﻿# CQRS: Command Query Responsibility Segregation
 ## Event Sourcing, and Domain Driven Design
 
-#Background
+##Background
 
 CQRS is not an entire architecture, but is just a small pattern.
 
@@ -11,5 +11,5 @@ change the answer. More formally, methods should return a value only if they are
 referentially transparent and hence possess no side effects.” (Wikipedia)
 
 Because of this we can divide methods into two sets:
-- *Commands:* change the state of an object or entire system.
-- *Queries:* return results and do not change the state of an object.
+- **Commands:** change the state of an object or entire system.
+- **Queries:** return results and do not change the state of an object.
