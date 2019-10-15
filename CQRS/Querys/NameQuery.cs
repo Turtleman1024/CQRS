@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CQRS
+namespace CQRS.Querys
 {
-    class AgeQuery : Query
+    class NameQuery : Query
     {
         public Person Target { get; set; }
     }

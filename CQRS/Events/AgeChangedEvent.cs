@@ -4,12 +4,13 @@ using System.Text;
 
 namespace CQRS
 {
-    class AgedChangedEvent : Event
+    class AgeChangedEvent : IEventHandler
     {
-        public Person Target;
-        public int OldValue, NewValue;
+        public Person Target { get; set; }
+        public int OldValue { get; set; }
+        public int NewValue { get; set; }
 
-        public AgedChangedEvent(Person target, int oldValue, int newValue)
+        public AgeChangedEvent(Person target, int oldValue, int newValue)
         {
             Target = target;
             OldValue = oldValue;
