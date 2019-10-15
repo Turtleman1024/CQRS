@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CQRS.Querys
+namespace CQRS
 {
     class AgeQuery : Query
     {

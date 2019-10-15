@@ -4,9 +4,8 @@ using System.Text;
 
 namespace CQRS
 {
-    public class Event
+    public interface IEventHandler
     {
-        //backtrack
-
+        string ToString();
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CQRS.Events
+namespace CQRS
 {
-    class NameChangedEvent : Event
+    class NameChangedEvent : IEventHandler
     {
         public Person Target;
         public string OldValue, NewValue;

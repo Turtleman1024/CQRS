@@ -19,7 +19,7 @@ namespace CQRS
             eb.Command(new ChangeAgeCommand(p, 456));
             eb.Command(new ChangeNameCommand(p, "MuffinMan"));
 
-            //We are now registered 
+            //Print all events that have happened
             foreach (var e in eb.AllEvents)
             {
                 Console.WriteLine(e);
@@ -36,7 +36,7 @@ namespace CQRS
 
             eb.UndoLast();
 
-            //Print all the events 
+            //Print all the events that have happened after undoing the last command
             foreach (var e in eb.AllEvents)
             {
                 Console.WriteLine(e);
@@ -46,6 +46,7 @@ namespace CQRS
             name = eb.Query<string>(new NameQuery { Target = p });
 
             Console.WriteLine(age);
+            Console.WriteLine(name);
 
             Console.ReadKey();
         }

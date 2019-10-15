@@ -1,9 +1,6 @@
 ﻿using CQRS.Commands;
-using CQRS.Events;
 using CQRS.Querys;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CQRS
 {
@@ -54,7 +51,7 @@ namespace CQRS
                     if (cac != null && cac.Target == this)
                     {
                         //Send an event we are now recording the age has changed.
-                        if (cac.Registered) broker.AllEvents.Add(new AgedChangedEvent(this, age, cac.Age));
+                        if (cac.Registered) broker.AllEvents.Add(new AgeChangedEvent(this, age, cac.Age));
                         age = cac.Age;
                     }
                     break;

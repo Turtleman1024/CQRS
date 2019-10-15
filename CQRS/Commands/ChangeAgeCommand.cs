@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CQRS.Commands
+namespace CQRS
 {
     class ChangeAgeCommand : Command
     {
