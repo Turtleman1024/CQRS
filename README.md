@@ -5,7 +5,7 @@
 
 CQRS is not an entire architecture, but is just a small pattern.
 
-The main idea behind CQS is: “A method should either change state of an object,
+The main idea behind CQRS is: “A method should either change state of an object,
 or return a result, but not both. In other words, asking the question should not
 change the answer. More formally, methods should return a value only if they are
 referentially transparent and hence possess no side effects.” (Wikipedia)
