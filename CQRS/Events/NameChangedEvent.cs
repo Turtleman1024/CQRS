@@ -6,8 +6,9 @@ namespace CQRS
 {
     class NameChangedEvent : IEventHandler
     {
-        public Person Target;
-        public string OldValue, NewValue;
+        public Person Target { get; set; }
+        public string OldValue { get; set; }
+        public string NewValue { get; set; }
 
         public NameChangedEvent(Person target, string oldValue, string newValue)
         {

@@ -8,13 +8,13 @@ namespace CQRS
     {
         private string name = "";
         private int age= 0;
-        EventBroker broker;
+        private EventBroker broker;
 
         public Person(EventBroker broker)
         {
             this.broker = broker;
-            broker.Commands += BrokerOnCommands;
-            broker.Queries += BrokerOnQueries;
+            this.broker.Commands += BrokerOnCommands;
+            this.broker.Queries += BrokerOnQueries;
         }
 
         private void BrokerOnQueries(object sender, Query queries)
@@ -50,7 +50,7 @@ namespace CQRS
                     cac = command as ChangeAgeCommand;
                     if (cac != null && cac.Target == this)
                     {
-                        //Send an event we are now recording the age has changed.
+                        //Add/Send an event we are now recording the age has changed.
                         if (cac.Registered) broker.AllEvents.Add(new AgeChangedEvent(this, age, cac.Age));
                         age = cac.Age;
                     }
@@ -59,6 +59,7 @@ namespace CQRS
                     cnc = command as ChangeNameCommand;
                     if (cnc != null && cnc.Target == this)
                     {
+                        //Add/Send an event we are now recording the name has changed.
                         if (cnc.Registered) broker.AllEvents.Add(new NameChangedEvent(this, name, cnc.Name));
                         name = cnc.Name;
                     }
